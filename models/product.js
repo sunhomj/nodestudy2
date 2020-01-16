@@ -12,7 +12,9 @@ module.exports = class Product {
     }
 
     save() {
-        this.id = Math.random().toString();
+        this.id = Math.random()
+            .toString()
+            .tofixed(2);
         fs.readFile(p, (err, fileContent) => {
             let products = [];
             if (!err) {
@@ -26,6 +28,13 @@ module.exports = class Product {
     }
 
     static fetchAll(cb) {
+        fs.readFile(p, (err, fileContent) => {
+            if (err) return cb([]);
+            cb(JSON.parse(fileContent));
+        });
+    }
+
+    static findById(id, cb) {
         fs.readFile(p, (err, fileContent) => {
             if (err) return cb([]);
             cb(JSON.parse(fileContent));
