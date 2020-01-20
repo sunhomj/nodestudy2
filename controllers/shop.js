@@ -10,8 +10,6 @@ exports.getProducts = (req, res, next) => {
     });
 };
 
-<<<<<<< HEAD
-=======
 exports.getProduct = (req, res, next) => {
     const prodId = req.params.productId;
     Product.findById(prodId, product => {
@@ -20,7 +18,6 @@ exports.getProduct = (req, res, next) => {
     res.redirect("/");
 };
 
->>>>>>> c9ebd50d1253976d873a52fc52dfaac1358802fd
 exports.getIndex = (req, res, next) => {
     Product.fetchAll(products => {
         res.render("shop/index", {
@@ -38,8 +35,6 @@ exports.getCart = (req, res, next) => {
     });
 };
 
-<<<<<<< HEAD
-=======
 exports.getOrders = (req, res, next) => {
     res.render("shop/orders", {
         path: "/orders",
@@ -47,7 +42,6 @@ exports.getOrders = (req, res, next) => {
     });
 };
 
->>>>>>> c9ebd50d1253976d873a52fc52dfaac1358802fd
 exports.getCheckout = (req, res, next) => {
     res.render("shop/checkout", {
         path: "/checkout",

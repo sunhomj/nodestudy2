@@ -3,33 +3,21 @@
 }
 
 .form-control label,
-<<<<<<< HEAD
-.form-control input {
-=======
 .form-control input,
 .form-control textarea {
->>>>>>> c9ebd50d1253976d873a52fc52dfaac1358802fd
     display: block;
     width: 100%;
     margin-bottom: 0.25rem;
 }
 
-<<<<<<< HEAD
-.form-control input {
-=======
 .form-control input,
 .form-control textarea {
->>>>>>> c9ebd50d1253976d873a52fc52dfaac1358802fd
     border: 1px solid #a1a1a1;
     font: inherit;
     border-radius: 2px;
 }
 
-<<<<<<< HEAD
-.form-control input:focus {
-=======
 .form-control input:focus,
 .form-control textarea:focus {
->>>>>>> c9ebd50d1253976d873a52fc52dfaac1358802fd
     outline-color: #00695c;
 }
