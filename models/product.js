@@ -3,6 +3,13 @@ const path = require("path");
 // root project path that can cover different OS system path patten
 const p = path.join(path.dirname(process.mainModule.filename), "data", "product.json");
 
+const getFileFromProduct = cb => {
+    fs.readFile(p, (err, fileContent) => {
+        if (err) return cb([]);
+        cb(JSON.parse(fileContent));
+    });
+};
+
 module.exports = class Product {
     constructor(title, imageUrl, price, description) {
         this.title = title;
@@ -12,9 +19,7 @@ module.exports = class Product {
     }
 
     save() {
-        this.id = Math.random()
-            .toString()
-            .tofixed(2);
+        this.id = Math.random().toString();
         fs.readFile(p, (err, fileContent) => {
             let products = [];
             if (!err) {
@@ -28,16 +33,13 @@ module.exports = class Product {
     }
 
     static fetchAll(cb) {
-        fs.readFile(p, (err, fileContent) => {
-            if (err) return cb([]);
-            cb(JSON.parse(fileContent));
-        });
+        getFileFromProduct(cb);
     }
 
     static findById(id, cb) {
-        fs.readFile(p, (err, fileContent) => {
-            if (err) return cb([]);
-            cb(JSON.parse(fileContent));
+        getFileFromProduct(products => {
+            let productFound = products.find(prod => prod.id === id);
+            cb(productFound);
         });
     }
 };
